@@ -6,6 +6,8 @@ import Bottombar from "./Bottombar";
 import FileError from "./FileError";
 import { Route, Routes } from "react-router-dom";
 import Cartpage from "./Cartpage";
+import Login from "./Login";
+import Register from "./Register";
 
 function App() {
   const [productcart, setproductcart] = useState(0);
@@ -31,7 +33,7 @@ function App() {
       <Topbar ItemCount={totalCount} />
       <div className="grow">
         <Routes>
-          <Route index element={<Productpage />}></Route>
+          <Route index element={<Login />}></Route>
           <Route
             path="/Detail/:id/"
             element={<Detail onAddToCart={cartItems} />}
@@ -39,6 +41,7 @@ function App() {
           <Route path="/Productpage" element={<Productpage />}></Route>
           <Route path="/*/*" element={<FileError />}></Route>
           <Route path="/Cartpage" element={<Cartpage />}></Route>
+          <Route path="/Register" element={<Register />}></Route>
         </Routes>
       </div>
       <Bottombar />
