@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ProductData from "./ProductData";
 import getAllData from "./GetData";
 import NoMatch from "./NotFound";
-
+import { Link } from "react-router-dom";
 import Loading from "./Loading";
 
 function Productpage() {
@@ -48,7 +48,7 @@ function Productpage() {
     setSort(event.target.value);
   }
 
-  function handleInputChange() {
+  function handleInputChange(event) {
     setQuery(event.target.value);
   }
 
@@ -59,6 +59,20 @@ function Productpage() {
   return (
     <>
       <div className="p-10 bg-gray-200 mx-8 my-4">
+        <div className="flex justify-end mb-4">
+          <Link
+            to="/Login"
+            className="flex place-content-center rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 border-2 font-bold text-xl w-28  mr-4"
+          >
+            Login
+          </Link>
+          <Link
+            to="/Register"
+            className="flex place-content-center rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 border-2 font-bold text-xl w-28 "
+          >
+            Sign Up
+          </Link>
+        </div>
         <div className="flex justify-end ">
           <input
             className=" rounded-lg mr-4 border border-solid p-2 "
@@ -67,7 +81,7 @@ function Productpage() {
             onChange={handleInputChange}
             type="search"
           />
-          <select onChange={handleSortChange}>
+          <select onChange={handleSortChange} className="rounded-lg">
             <option value="Default">DEFAULT Filter</option>
             <option value="highToLow">Price: high to low</option>
             <option value="lowToHigh">Price: low to high</option>

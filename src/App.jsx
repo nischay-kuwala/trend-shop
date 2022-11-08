@@ -10,11 +10,11 @@ import Login from "./Login";
 import Register from "./Register";
 
 function App() {
-  const [productcart, setproductcart] = useState(0);
+  //const [productcart, setproductcart] = useState(0);
   const savedItems = localStorage.getItem("my-Cart") || "{}";
   const savedItemsconvert = JSON.parse(savedItems);
 
-  console.log("items are", productcart);
+  //console.log("items are", productcart);
   const [cart, setCart] = useState(savedItemsconvert);
 
   function cartItems(productId, count) {
@@ -42,6 +42,7 @@ function App() {
           <Route path="/*/*" element={<FileError />}></Route>
           <Route path="/Cartpage" element={<Cartpage />}></Route>
           <Route path="/Register" element={<Register />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
         </Routes>
       </div>
       <Bottombar />
